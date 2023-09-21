@@ -12,7 +12,12 @@ from operator import mul
 if sys.version_info >= (3, 0):
     from functools import reduce
 
-data_files_path = tf.resource_loader.get_data_files_path()
+# data_files_path = tf.resource_loader.get_data_files_path()
+import os
+current_path = os.path.dirname(os.path.abspath(__file__))
+data_files_path = current_path
+# /home/ip/.local/lib/python3.10/site-packages/blocksparse
+
 _op_module = tf.load_op_library(os.path.join(data_files_path, 'blocksparse_ops.so'))
 # for x in dir(_op_module):
 #     print(x)
